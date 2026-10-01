@@ -39,4 +39,24 @@
       if (ok) ok.hidden = false;
     });
   }
+
+  // Gallery lightbox
+  var links = document.querySelectorAll('.gallery-item');
+  if (links.length && window.HTMLDialogElement) {
+    var dlg = document.createElement('dialog');
+    dlg.className = 'lightbox';
+    dlg.innerHTML = '<button type="button" aria-label="Close">&times;</button><img alt="">';
+    document.body.appendChild(dlg);
+    var big = dlg.querySelector('img');
+    links.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var img = a.querySelector('img');
+        big.src = a.href;
+        big.alt = img ? img.alt : '';
+        dlg.showModal();
+      });
+    });
+    dlg.addEventListener('click', function () { dlg.close(); });
+  }
 })();
