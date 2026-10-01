@@ -4,7 +4,7 @@ You are working for Lazaro at EM Digital. This folder is a finished static websi
 (plain HTML/CSS/JS, no build step) for a client. Your job is to put it live.
 
 ## Facts
-- Client: Man's Best Friend — in-home dog boarding, owner Andrew Geist, Pinecrest FL
+- Client: Man's Best Friend — in-home dog boarding, owner Andrew Geist, Kendall FL
 - Domain (registered at GoDaddy): mansbestfriendmiami.com — primary host is **www.mansbestfriendmiami.com**, bare domain redirects to www
 - GitHub org: Marketing1527 — repo to create: **Marketing1527/mans-best-friend** (public)
 - Vercel team: "laz's projects", slug `lazs-projects-04b09be7`, id `team_UmSovlnsttLQwLIsPu2o9tTW`
