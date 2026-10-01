@@ -28,7 +28,7 @@ Also included: `sitemap.xml`, `robots.txt`, `site.webmanifest`, `.htaccess` (404
 - The contact form opens the visitor's email app addressed to geistandrew@yahoo.com (no server needed). Swap it for a form service (Formspree, GHL, etc.) later if you want submissions tracked.
 
 ## Before launch
-1. **Domain:** set to `https://www.mansbestfriend.com`. If different, find-and-replace that string across all files (canonicals, schema, sitemap, robots, .htaccess).
+1. **Domain:** set to `https://www.mansbestfriendmiami.com`. If different, find-and-replace that string across all files (canonicals, schema, sitemap, robots, .htaccess).
 2. **Confirm with Andrew** (written as standard boarding policy, adjust as needed): required vaccines, deposit/payment terms, cancellation terms, emergency vet process, any breeds/sizes he won't take.
 3. **Photos:** add real photos of Andrew, his home/yard and dogs in his care. They'll lift trust more than anything else.
 4. **Google Business Profile:** keep it as a service-area business (no street address shown), matching name, phone and the three service areas.

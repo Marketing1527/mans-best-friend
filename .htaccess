@@ -6,7 +6,7 @@ RewriteEngine On
 # Force HTTPS and www
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^(.*)$ https://www.mansbestfriend.com/$1 [L,R=301]
+RewriteRule ^(.*)$ https://www.mansbestfriendmiami.com/$1 [L,R=301]
 # /index.html -> /
 RewriteCond %{THE_REQUEST} /index\.html [NC]
 RewriteRule ^index\.html$ / [L,R=301]
