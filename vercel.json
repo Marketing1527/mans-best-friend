@@ -1,24 +1,6 @@
 {
   "redirects": [
-    {
-      "source": "/review",
-      "destination": "https://search.google.com/local/writereview?placeid=ChIJn_I0r-7H2YgR95-6Xol8krs",
-      "permanent": false
-    },
-    {
-      "source": "/reviews",
-      "destination": "https://search.google.com/local/writereview?placeid=ChIJn_I0r-7H2YgR95-6Xol8krs",
-      "permanent": false
-    },
-    {
-      "source": "/pinecrest-dog-boarding.html",
-      "destination": "/kendall-dog-boarding.html",
-      "permanent": true
-    },
-    {
-      "source": "/pinecrest-dog-boarding",
-      "destination": "/kendall-dog-boarding.html",
-      "permanent": true
-    }
+    { "source": "/review", "destination": "https://search.google.com/local/writereview?placeid=ChIJn_I0r-7H2YgR95-6Xol8krs", "permanent": false },
+    { "source": "/reviews", "destination": "https://search.google.com/local/writereview?placeid=ChIJn_I0r-7H2YgR95-6Xol8krs", "permanent": false }
   ]
 }

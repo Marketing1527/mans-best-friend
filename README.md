@@ -1,6 +1,6 @@
 # Man's Best Friend — Website
 
-Static HTML site for Man's Best Friend (Andrew Geist), in-home dog boarding in Kendall, FL.
+Static HTML site for Man's Best Friend (Andrew Geist), in-home dog boarding in Pinecrest, FL.
 Upload the contents of this folder to the web root. No build step, database, or plugins needed.
 
 ## Pages
@@ -10,7 +10,7 @@ Upload the contents of this folder to the web root. No build step, database, or 
 | dog-boarding.html | Service page | Service, BreadcrumbList |
 | pricing.html | $50 / $40 rates + example totals | Service, BreadcrumbList |
 | locations.html | Service-area hub | Service, BreadcrumbList |
-| kendall-dog-boarding.html | Location page | Service, FAQPage, BreadcrumbList |
+| pinecrest-dog-boarding.html | Location page | Service, FAQPage, BreadcrumbList |
 | palmetto-bay-dog-boarding.html | Location page | Service, FAQPage, BreadcrumbList |
 | coconut-grove-dog-boarding.html | Location page | Service, FAQPage, BreadcrumbList |
 | about.html | About Andrew | BreadcrumbList |
