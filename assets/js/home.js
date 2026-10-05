@@ -81,3 +81,31 @@ document.documentElement.classList.add('js');
     dlg.addEventListener('click', function () { dlg.close(); });
   }
 })();
+
+// Reviews: published reviews from /api/reviews (submitted at /review)
+(function () {
+  var listEl = document.getElementById('review-list');
+  if (!listEl || !window.fetch) return;
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  fetch('/api/reviews')
+    .then(function (r) { return r.ok ? r.json() : { reviews: [] }; })
+    .then(function (data) {
+      var reviews = (data && data.reviews) || [];
+      if (!reviews.length) return;
+      listEl.innerHTML = '';
+      reviews.forEach(function (rv) {
+        var card = el('figure', 'review-card');
+        var stars = el('div', 'review-stars', '★★★★★'.slice(0, rv.rating) + '☆☆☆☆☆'.slice(0, 5 - rv.rating));
+        stars.setAttribute('aria-label', rv.rating + ' out of 5 stars');
+        stars.setAttribute('role', 'img');
+        card.appendChild(stars);
+        card.appendChild(el('blockquote', 'review-text', rv.comment));
+        var by = el('figcaption', 'review-by');
+        by.appendChild(el('strong', null, rv.name));
+        if (rv.dog) by.appendChild(el('span', null, 'with ' + rv.dog));
+        card.appendChild(by);
+        listEl.appendChild(card);
+      });
+    })
+    .catch(function () { /* keep the empty-state invite */ });
+})();

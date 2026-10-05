@@ -1,16 +1,6 @@
 {
   "redirects": [
     {
-      "source": "/review",
-      "destination": "https://search.google.com/local/writereview?placeid=ChIJn_I0r-7H2YgR95-6Xol8krs",
-      "permanent": false
-    },
-    {
-      "source": "/reviews",
-      "destination": "https://search.google.com/local/writereview?placeid=ChIJn_I0r-7H2YgR95-6Xol8krs",
-      "permanent": false
-    },
-    {
       "source": "/kendall-dog-boarding.html",
       "destination": "/pinecrest-dog-boarding.html",
       "permanent": true
@@ -19,6 +9,35 @@
       "source": "/kendall-dog-boarding",
       "destination": "/pinecrest-dog-boarding.html",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/review",
+      "destination": "/review.html"
+    },
+    {
+      "source": "/reviews",
+      "destination": "/review.html"
+    },
+    {
+      "source": "/reviews-admin",
+      "destination": "/reviews-admin.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/reviews-admin(.html)?",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
     }
   ]
 }

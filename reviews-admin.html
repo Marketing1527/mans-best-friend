@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manage Reviews | Man's Best Friend</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css?v=2026-10-05">
+<style>
+  .adm{max-width:860px;margin:0 auto;padding:40px 20px 80px}
+  .adm h1{font-size:2rem;margin-bottom:6px}
+  .adm .sub{color:var(--muted);margin-bottom:28px}
+  .adm-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:14px}
+  .adm-item.is-hidden{opacity:.55;background:#F7F3EC}
+  .adm-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .adm-stars{color:var(--gold);letter-spacing:2px}
+  .adm-meta{color:var(--muted);font-size:.9rem}
+  .adm-comment{margin:10px 0 14px;white-space:pre-wrap}
+  .adm-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .adm-actions button{font:inherit;font-weight:700;font-size:.92rem;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--navy);cursor:pointer}
+  .adm-actions button:hover{border-color:var(--navy)}
+  .adm-actions .del{color:#9B1C1C;border-color:#F0C7C7}
+  .adm-badge{display:inline-block;font-size:.78rem;font-weight:800;padding:3px 9px;border-radius:999px;background:#EDE6DA;color:var(--navy);margin-left:8px}
+  .adm-empty,.adm-msg{background:#fff;border:1px dashed var(--line);border-radius:16px;padding:28px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="adm">
+  <h1>Manage reviews</h1>
+  <p class="sub">Every review posted at mansbestfriendmiami.com/review. Hidden reviews stay saved but don't show on the website. Keep this link private.</p>
+  <div id="adm-list"><p class="adm-msg">Loading…</p></div>
+</main>
+<script>
+(function () {
+  var hashKey = (location.hash.match(/key=([^&]+)/) || [])[1];
+  if (hashKey) { try { sessionStorage.setItem('mbfAdminKey', decodeURIComponent(hashKey)); } catch (e) {} history.replaceState(null, '', location.pathname); }
+  var key = hashKey ? decodeURIComponent(hashKey) : (function () { try { return sessionStorage.getItem('mbfAdminKey'); } catch (e) { return null; } })();
+  var list = document.getElementById('adm-list');
+
+  function msg(text) { list.innerHTML = ''; var p = document.createElement('p'); p.className = 'adm-msg'; p.textContent = text; list.appendChild(p); }
+  function api(method, body) {
+    return fetch('/api/reviews-admin', { method: method, headers: { 'Content-Type': 'application/json', 'x-admin-key': key || '' }, body: body ? JSON.stringify(body) : undefined })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'Request failed'); return j; }); });
+  }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  function render(reviews) {
+    list.innerHTML = '';
+    if (!reviews.length) { list.appendChild(el('p', 'adm-empty', 'No reviews yet. Share mansbestfriendmiami.com/review with past customers.')); return; }
+    reviews.forEach(function (r) {
+      var card = el('article', 'adm-item' + (r.hidden ? ' is-hidden' : ''));
+      var top = el('div', 'adm-top');
+      var who = el('strong', null, r.name + (r.dog ? ' (with ' + r.dog + ')' : ''));
+      if (r.hidden) who.appendChild(el('span', 'adm-badge', 'Hidden'));
+      top.appendChild(who);
+      top.appendChild(el('span', 'adm-meta', new Date(r.createdAt).toLocaleString()));
+      card.appendChild(top);
+      card.appendChild(el('div', 'adm-stars', '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating)));
+      card.appendChild(el('p', 'adm-comment', r.comment));
+      var actions = el('div', 'adm-actions');
+      var toggle = el('button', null, r.hidden ? 'Show on website' : 'Hide from website');
+      toggle.type = 'button';
+      toggle.onclick = function () { toggle.disabled = true; api('POST', { id: r.id, action: r.hidden ? 'show' : 'hide' }).then(load).catch(function (e) { alert(e.message); toggle.disabled = false; }); };
+      var del = el('button', 'del', 'Delete');
+      del.type = 'button';
+      del.onclick = function () { if (!confirm('Delete this review permanently?')) return; del.disabled = true; api('POST', { id: r.id, action: 'delete' }).then(load).catch(function (e) { alert(e.message); del.disabled = false; }); };
+      actions.appendChild(toggle); actions.appendChild(del);
+      card.appendChild(actions);
+      list.appendChild(card);
+    });
+  }
+  function load() { return api('GET').then(function (j) { render(j.reviews); }).catch(function (e) { msg(e.message === 'Not authorized' ? 'This link is missing its key. Open the full private link you were given.' : 'Could not load reviews: ' + e.message); }); }
+
+  if (!key) msg('This link is missing its key. Open the full private link you were given.'); else load();
+})();
+</script>
+</body>
+</html>

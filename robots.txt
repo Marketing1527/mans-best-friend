@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /review
+Disallow: /reviews-admin
+Disallow: /api/
 
 Sitemap: https://www.mansbestfriendmiami.com/sitemap.xml
