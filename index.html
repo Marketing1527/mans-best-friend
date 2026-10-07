@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@600;700;800;900&family=Red+Hat+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-<link rel="stylesheet" href="assets/css/home.css?v=2026-10-05">
+<link rel="stylesheet" href="assets/css/home.css?v=2026-10-07">
 <script type="application/ld+json">{
  "@context": "https://schema.org",
  "@type": "LocalBusiness",
@@ -95,7 +95,7 @@
  ],
  "hasOfferCatalog": {
   "@type": "OfferCatalog",
-  "name": "Dog Boarding",
+  "name": "Dog boarding and add-ons",
   "itemListElement": [
    {
     "@type": "Offer",
@@ -111,6 +111,24 @@
     "itemOffered": {
      "@type": "Service",
      "name": "In-home dog boarding"
+    }
+   },
+   {
+    "@type": "Offer",
+    "name": "Bath service",
+    "description": "A gentle bath and brush-out before pick-up. Pricing on request.",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Dog bath"
+    }
+   },
+   {
+    "@type": "Offer",
+    "name": "Photos of your dog",
+    "description": "Photos of your dog during their stay. Pricing on request.",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Dog photography"
     }
    }
   ]
@@ -226,8 +244,8 @@
       </div>
       <div class="hero-media">
         <picture class="hero-main">
-          <source srcset="assets/img/hero-patio.webp" type="image/webp">
-          <img src="assets/img/hero-patio.jpg" alt="Andrew on his back patio with five boarding dogs sitting and looking up at him" width="900" height="1350" fetchpriority="high">
+          <source srcset="assets/img/hero-street.webp" type="image/webp">
+          <img src="assets/img/hero-street.jpg" alt="Andrew crouching on a sunny street with a small black dog and a cream doodle" width="900" height="1200" fetchpriority="high">
         </picture>
         <img class="hero-inset" src="assets/img/gallery/dogs-1.webp" alt="Two boarding dogs on a leashed walk down a shady Pinecrest street" width="675" height="900">
       </div>
@@ -317,6 +335,28 @@
         <p class="calc-foot">Final pricing is confirmed when you book by phone.</p>
         <a class="btn btn-navy btn-block" href="tel:+13053223338"><i class="ph ph-phone" aria-hidden="true"></i>Call (305) 322-3338</a>
       </div>
+    </div>
+  </section>
+
+  <section class="addons-section" id="addons">
+    <div class="wrap">
+      <h2>Add-ons for your dog's stay</h2>
+      <p class="section-sub">Extras you can add when you book. Just ask when you call or text.</p>
+      <div class="addon-grid">
+        <article class="addon-card">
+          <span class="addon-icon" aria-hidden="true"><i class="ph ph-bathtub"></i></span>
+          <h3>Bath service</h3>
+          <p>Your dog comes home clean and fresh. A gentle bath and brush-out before pick-up, so they're ready for the couch the moment they're back.</p>
+          <span class="addon-price">Ask about pricing</span>
+        </article>
+        <article class="addon-card">
+          <span class="addon-icon" aria-hidden="true"><i class="ph ph-camera"></i></span>
+          <h3>Photos of your dog</h3>
+          <p>Great photos of your dog during their stay, on neighborhood walks, in the yard and relaxing at home. You keep the best shots.</p>
+          <span class="addon-price">Ask about pricing</span>
+        </article>
+      </div>
+      <a class="btn btn-quiet" href="sms:+13053223338"><i class="ph ph-chat-circle-text" aria-hidden="true"></i>Text us to add one</a>
     </div>
   </section>
 

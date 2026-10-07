@@ -273,3 +273,13 @@ p{margin:0;text-wrap:pretty}
 .review-empty a{color:var(--navy);font-weight:600}
 @media (max-width:1080px){.review-list{columns:2}}
 @media (max-width:767px){.reviews-section{padding:72px 0 80px}.review-list{columns:1;margin-top:28px}}
+
+/* Add-ons */
+.addons-section{padding:104px 0 112px}
+.addon-grid{margin:44px 0 32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:900px}
+.addon-card{display:flex;flex-direction:column;padding:30px;border-radius:var(--r-photo);background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow)}
+.addon-icon{display:grid;place-items:center;width:52px;height:52px;border-radius:var(--r-ctl);background:var(--tint);color:var(--navy);font-size:1.6rem;margin-bottom:18px}
+.addon-card h3{font-size:1.3rem}
+.addon-card p{margin-top:8px;color:var(--muted);flex:1}
+.addon-price{margin-top:18px;font-weight:600;color:var(--gold-ink)}
+@media (max-width:767px){.addons-section{padding:72px 0 80px}.addon-grid{grid-template-columns:1fr;margin:28px 0 24px}}
