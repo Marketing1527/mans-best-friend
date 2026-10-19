@@ -23,11 +23,15 @@
     {
       "source": "/reviews-admin",
       "destination": "/reviews-admin.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
     }
   ],
   "headers": [
     {
-      "source": "/reviews-admin(.html)?",
+      "source": "/(reviews-admin|admin)(.html)?",
       "headers": [
         {
           "key": "X-Robots-Tag",
