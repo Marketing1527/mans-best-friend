@@ -110,7 +110,7 @@ p{margin:0;text-wrap:pretty}
 .why{padding:120px 0 128px}
 .why-grid{display:grid;grid-template-columns:.8fr 1fr;gap:clamp(40px,7vw,104px);align-items:center}
 .why-photo{margin:0}
-.why-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-photo)}
+.why-photo img{width:100%;height:auto;border-radius:var(--r-photo)}
 .why-copy>p{margin-top:20px;max-width:58ch;font-size:1.1rem}
 .why-copy h3{margin-top:40px;font-size:1.05rem}
 .ticks{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
@@ -230,7 +230,7 @@ p{margin:0;text-wrap:pretty}
   .why,.pricing,.areas{padding:72px 0 80px}
   .steps-section,.gallery-section,.faq-section{padding:72px 0 80px}
   .why-grid{grid-template-columns:1fr}
-  .why-photo img{aspect-ratio:4/3}
+  .why-photo img{max-height:none}
   .ticks{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr;gap:28px;margin-top:40px}
   .steps::before{top:22px;bottom:22px;left:21px;right:auto;width:2px;height:auto;background:linear-gradient(180deg,var(--gold),var(--line))}
